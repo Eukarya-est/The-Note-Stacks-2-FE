@@ -8,7 +8,6 @@ import { ThemeProvider, useTheme } from "next-themes";
 import { KeyboardShortcutsDialog } from "@/components/KeyboardShortcutsDialog";
 import Index from "./pages/Index";
 import Desk from "./pages/Desk";
-import BackendDemo from "./pages/BackendDemo";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -44,7 +43,6 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/note/:noteId" element={<Index />} />
             <Route path="/desk" element={<Desk />} />
-            <Route path="/backend-demo" element={<BackendDemo />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
