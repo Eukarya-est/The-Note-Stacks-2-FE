@@ -6,7 +6,7 @@ import Navbar from "@/components/Navbar";
 import CategorySidebar from "@/components/CategorySidebar";
 import NavigationControls from "@/components/NavigationControls";
 import MarkdownViewer from "@/components/MarkdownViewer";
-import GoogleAdBanner from "@/components/GoogleAdBanner";
+import GoogleAdBanner, { GoogleAdBannerTablet, GoogleAdBannerMobile } from "@/components/GoogleAdBanner";
 import { KeyboardHints } from "@/components/KeyboardHints";
 import { useCategories } from "@/hooks/useCategories";
 import { useMarkdownFiles } from "@/hooks/useMarkdownFiles";
@@ -226,6 +226,8 @@ const Index = () => {
   return (
     <div className="min-h-screen w-full">
       <Navbar onSearch={setSearchQuery} />
+      <GoogleAdBannerTablet />
+      <GoogleAdBannerMobile />
       <KeyboardHints />
 
       <div className="flex flex-col md:flex-row w-full">

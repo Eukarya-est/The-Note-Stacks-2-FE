@@ -1,5 +1,5 @@
 import { Calendar, ChevronDown, ChevronUp } from "lucide-react";
-import GoogleAdBanner from "@/components/GoogleAdBanner";
+import GoogleAdBanner, { GoogleAdBannerTablet, GoogleAdBannerMobile } from "@/components/GoogleAdBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -69,6 +69,8 @@ const Desk = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar onSearch={() => {}} />
+      <GoogleAdBannerTablet />
+      <GoogleAdBannerMobile />
 
       <div className="flex">
         <main className="flex-1 min-w-0 p-4 sm:p-6 max-w-7xl mx-auto space-y-6 sm:space-y-8">
