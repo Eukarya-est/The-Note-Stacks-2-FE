@@ -55,7 +55,7 @@ const Index = () => {
   );
   const trackView = useTrackNoteView();
   const lastTrackedNoteId = useRef<string | null>(null);
-  const viewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const viewTimerRef = useRef<NodeJS.Timeout | null>(null);
 
 
   // Track view after 30 seconds of viewing a note - only when user has explicitly selected

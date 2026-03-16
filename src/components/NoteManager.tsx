@@ -48,10 +48,10 @@ const NoteManager = ({ stackId }: NoteManagerProps) => {
     if (editingId) {
       // Update existing note
       updateNote.mutate(
-          { 
-            id: editingId, 
-            updates: { title, content, cover: stackId } 
-          },
+        { 
+          id: editingId, 
+          updates: { title, content, stackId } 
+        },
         {
           onSuccess: () => {
             setTitle("");
@@ -63,7 +63,7 @@ const NoteManager = ({ stackId }: NoteManagerProps) => {
     } else {
       // Create new note
       createNote.mutate(
-        { title, content, cover: stackId },
+        { title, content, stackId },
         {
           onSuccess: () => {
             setTitle("");
