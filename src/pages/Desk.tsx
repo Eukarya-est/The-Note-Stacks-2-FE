@@ -1,4 +1,5 @@
 import { Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import GoogleAdBanner from "@/components/GoogleAdBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
