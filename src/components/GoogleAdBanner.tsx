@@ -72,7 +72,7 @@ export const GoogleAdBannerDesktop = () => {
           >
             <ChevronRight className="h-3 w-3" />
           </CollapseButton>
-          <AdPlaceholder width={160} height={600} />
+          <AdUnit style={{ width: 160, height: 600 }} />
         </div>
       )}
     </aside>
