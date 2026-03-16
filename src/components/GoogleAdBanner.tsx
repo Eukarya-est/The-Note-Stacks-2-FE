@@ -7,41 +7,42 @@
  * - Mobile (<md): 320×100 sticky bottom banner
  */
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, X } from "lucide-react";
 
-const AdPlaceholder = ({ width, height, className }: { width: number; height: number; className?: string }) => (
-  <div className={`rounded-lg border border-border bg-card/50 overflow-hidden ${className ?? ""}`}>
-    <div className="flex flex-col items-center justify-center p-2" style={{ minHeight: height }}>
-      <div
-        className="w-full rounded bg-muted/50 flex flex-col items-center justify-center gap-1.5"
-        style={{ height }}
-      >
-        <span className="text-[10px] font-medium uppercase tracking-wider text-muted-foreground/60">
-          Advertisement
-        </span>
-        <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-muted-foreground/40"
-          >
-            <rect width="18" height="18" x="3" y="3" rx="2" />
-            <path d="m9 8 6 4-6 4Z" />
-          </svg>
-        </div>
-        <span className="text-[9px] text-muted-foreground/40">{width} × {height}</span>
-      </div>
-    </div>
-  </div>
-);
+declare global {
+  interface Window {
+    adsbygoogle: Record<string, unknown>[];
+  }
+}
+
+const AdUnit = ({ className, style }: { className?: string; style?: React.CSSProperties }) => {
+  const adRef = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (adRef.current && !pushed.current) {
+      try {
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
+      } catch {
+        // adsbygoogle not loaded yet
+      }
+    }
+  }, []);
+
+  return (
+    <ins
+      ref={adRef}
+      className={`adsbygoogle ${className ?? ""}`}
+      style={{ display: "block", ...style }}
+      data-ad-client="ca-pub-6413269542742691"
+      data-ad-slot=""
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    />
+  );
+};
 
 const CollapseButton = ({ onClick, children, className }: { onClick: () => void; children: React.ReactNode; className?: string }) => (
   <button
@@ -71,7 +72,7 @@ export const GoogleAdBannerDesktop = () => {
           >
             <ChevronRight className="h-3 w-3" />
           </CollapseButton>
-          <AdPlaceholder width={160} height={600} />
+          <AdUnit style={{ width: 160, height: 600 }} />
         </div>
       )}
     </aside>
@@ -97,7 +98,7 @@ export const GoogleAdBannerTablet = () => {
           >
             <X className="h-3 w-3" />
           </CollapseButton>
-          <AdPlaceholder width={728} height={90} className="w-full max-w-[728px]" />
+          <AdUnit className="w-full max-w-[728px]" style={{ height: 90 }} />
         </div>
       )}
     </div>
@@ -123,7 +124,7 @@ export const GoogleAdBannerMobile = () => {
           >
             <X className="h-3 w-3" />
           </CollapseButton>
-          <AdPlaceholder width={320} height={100} className="w-full max-w-[320px]" />
+          <AdUnit className="w-full max-w-[320px]" style={{ height: 100 }} />
         </div>
       )}
     </div>
