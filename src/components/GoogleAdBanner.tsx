@@ -124,7 +124,7 @@ export const GoogleAdBannerMobile = () => {
           >
             <X className="h-3 w-3" />
           </CollapseButton>
-          <AdPlaceholder width={320} height={100} className="w-full max-w-[320px]" />
+          <AdUnit className="w-full max-w-[320px]" style={{ height: 100 }} />
         </div>
       )}
     </div>
