@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import CategorySidebar from "@/components/CategorySidebar";
 import NavigationControls from "@/components/NavigationControls";
 import MarkdownViewer from "@/components/MarkdownViewer";
+import GoogleAdBanner from "@/components/GoogleAdBanner";
 import { KeyboardHints } from "@/components/KeyboardHints";
 import { useCategories } from "@/hooks/useCategories";
 import { useMarkdownFiles } from "@/hooks/useMarkdownFiles";
