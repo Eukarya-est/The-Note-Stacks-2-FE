@@ -98,7 +98,7 @@ export const GoogleAdBannerTablet = () => {
           >
             <X className="h-3 w-3" />
           </CollapseButton>
-          <AdPlaceholder width={728} height={90} className="w-full max-w-[728px]" />
+          <AdUnit className="w-full max-w-[728px]" style={{ height: 90 }} />
         </div>
       )}
     </div>
