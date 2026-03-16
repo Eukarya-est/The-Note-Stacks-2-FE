@@ -33,7 +33,7 @@ const techStackCategories = [
       { name: "AWS", logo: "/tech-logos/aws.svg" },
       { name: "Linux(Debian)", logo: "/tech-logos/debian.svg" },
       { name: "Docker", logo: "/tech-logos/docker.svg" },
-      { name: "Nginx", logo: "/tech-logos/nginx.svg" },
+      { name: "Docker Registry", logo: "/tech-logos/docker.svg" },
       { name: "Cloudflare", logo: "/tech-logos/cloudflare.svg" },
     ],
   },
@@ -41,10 +41,16 @@ const techStackCategories = [
     category: "Tools",
     items: [
       { name: "Python", logo: "/tech-logos/python.svg" },
-      { name: "ElasticSearch", logo: "/tech-logos/elasticsearch.svg" },
       { name: "Git", logo: "/tech-logos/git.svg" },
       { name: "Github", logo: "/tech-logos/github.svg" },
       { name: "GithubAction", logo: "/tech-logos/githubactions.svg" },
+    ],
+  },
+  {
+    category: "Deprecated",
+    items: [
+      { name: "ElasticSearch", logo: "/tech-logos/elasticsearch.svg" },
+      { name: "Nginx", logo: "/tech-logos/nginx.svg" },
     ],
   },
 ];

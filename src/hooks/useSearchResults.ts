@@ -159,7 +159,7 @@ export const useSearchResults = (query: string, debounceMs = 300) => {
         // Connect to backend Elasticsearch API
         const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
         const response = await fetch(
-          `${apiBaseUrl}/api/notes/search/advanced?q=${encodeURIComponent(debouncedQuery)}`
+          `${apiBaseUrl}/api/notes/search?q=${encodeURIComponent(debouncedQuery)}`
         );
         
         if (!response.ok) {
