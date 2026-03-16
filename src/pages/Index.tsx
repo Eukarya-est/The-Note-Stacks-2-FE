@@ -224,7 +224,7 @@ const Index = () => {
   const isLoading = coversLoading || notesLoading;
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full pb-28 md:pb-0">
       <Navbar onSearch={setSearchQuery} />
       <GoogleAdBannerTablet />
       <KeyboardHints />
