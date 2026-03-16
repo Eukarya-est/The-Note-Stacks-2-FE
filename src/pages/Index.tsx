@@ -333,6 +333,7 @@ const Index = () => {
 
         <GoogleAdBanner />
       </div>
+      <GoogleAdBannerMobile />
     </div>
   );
 };
