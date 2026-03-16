@@ -67,10 +67,9 @@ const Desk = () => {
   }, [isTechStackOpen]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-28 md:pb-0">
       <Navbar onSearch={() => {}} />
       <GoogleAdBannerTablet />
-      <GoogleAdBannerMobile />
 
       <div className="flex">
         <main className="flex-1 min-w-0 p-4 sm:p-6 max-w-7xl mx-auto space-y-6 sm:space-y-8">
@@ -165,6 +164,7 @@ const Desk = () => {
 
         <GoogleAdBanner />
       </div>
+      <GoogleAdBannerMobile />
     </div>
   );
 };

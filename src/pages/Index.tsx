@@ -224,10 +224,9 @@ const Index = () => {
   const isLoading = coversLoading || notesLoading;
 
   return (
-    <div className="min-h-screen w-full">
+    <div className="min-h-screen w-full pb-28 md:pb-0">
       <Navbar onSearch={setSearchQuery} />
       <GoogleAdBannerTablet />
-      <GoogleAdBannerMobile />
       <KeyboardHints />
 
       <div className="flex flex-col md:flex-row w-full">
@@ -334,6 +333,7 @@ const Index = () => {
 
         <GoogleAdBanner />
       </div>
+      <GoogleAdBannerMobile />
     </div>
   );
 };
