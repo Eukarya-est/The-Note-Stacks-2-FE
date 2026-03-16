@@ -63,7 +63,7 @@ const NoteManager = ({ stackId }: NoteManagerProps) => {
     } else {
       // Create new note
       createNote.mutate(
-        { title, content, stackId },
+        { title, content, cover: stackId },
         {
           onSuccess: () => {
             setTitle("");
