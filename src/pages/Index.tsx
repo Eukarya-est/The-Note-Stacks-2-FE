@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import CategorySidebar from "@/components/CategorySidebar";
 import NavigationControls from "@/components/NavigationControls";
 import MarkdownViewer from "@/components/MarkdownViewer";
+import GoogleAdBanner from "@/components/GoogleAdBanner";
 import { KeyboardHints } from "@/components/KeyboardHints";
 import { useCategories } from "@/hooks/useCategories";
 import { useMarkdownFiles } from "@/hooks/useMarkdownFiles";
@@ -55,7 +56,7 @@ const Index = () => {
   );
   const trackView = useTrackNoteView();
   const lastTrackedNoteId = useRef<string | null>(null);
-  const viewTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const viewTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
 
   // Track view after 30 seconds of viewing a note - only when user has explicitly selected
@@ -328,6 +329,8 @@ const Index = () => {
             </div>
           )}
         </main>
+
+        <GoogleAdBanner />
       </div>
     </div>
   );

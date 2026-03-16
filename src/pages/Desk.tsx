@@ -1,4 +1,5 @@
 import { Calendar, ChevronDown, ChevronUp } from "lucide-react";
+import GoogleAdBanner from "@/components/GoogleAdBanner";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Navbar from "@/components/Navbar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -69,7 +70,8 @@ const Desk = () => {
     <div className="min-h-screen bg-background">
       <Navbar onSearch={() => {}} />
 
-      <main className="p-4 sm:p-6 max-w-7xl mx-auto space-y-6 sm:space-y-8">
+      <div className="flex">
+        <main className="flex-1 min-w-0 p-4 sm:p-6 max-w-7xl mx-auto space-y-6 sm:space-y-8">
         {/* Profile Section */}
         <Card className="bg-gradient-to-r from-accent/10 to-primary/10 border-accent/20">
           <CardContent className="p-4 sm:p-6">
@@ -158,6 +160,9 @@ const Desk = () => {
           </CardContent>
         </Card>
       </main>
+
+        <GoogleAdBanner />
+      </div>
     </div>
   );
 };
