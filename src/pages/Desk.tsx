@@ -164,6 +164,7 @@ const Desk = () => {
         <GoogleAdBanner />
       </div>
     </div>
+  );
 };
 
 export default Desk;
