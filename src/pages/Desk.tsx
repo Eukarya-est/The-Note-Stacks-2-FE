@@ -160,8 +160,10 @@ const Desk = () => {
           </CardContent>
         </Card>
       </main>
+
+        <GoogleAdBanner />
+      </div>
     </div>
-  );
 };
 
 export default Desk;

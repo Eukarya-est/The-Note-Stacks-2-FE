@@ -329,6 +329,8 @@ const Index = () => {
             </div>
           )}
         </main>
+
+        <GoogleAdBanner />
       </div>
     </div>
   );
