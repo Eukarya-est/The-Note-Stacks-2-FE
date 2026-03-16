@@ -31,7 +31,7 @@ export const EventTooltip = ({ events, onEdit, currentUserId }: EventTooltipProp
   return (
     <div className="space-y-2 text-left">
       {events.map((event) => {
-        const isOwner = currentUserId && event.user_id === currentUserId;
+        const isOwner = currentUserId && (event as any).user_id === currentUserId;
         
         return (
           <div

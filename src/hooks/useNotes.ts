@@ -43,7 +43,7 @@ export const useCreateNote = () => {
     mutationFn: api.createNote,
     onSuccess: (data) => {
       // Invalidate and refetch notes in the stack
-      queryClient.invalidateQueries({ queryKey: ["notes", "cover", data.coverId] });
+      queryClient.invalidateQueries({ queryKey: ["notes", "cover", data.cover] });
       toast.success("Note created successfully");
     },
     onError: (error: Error) => {
