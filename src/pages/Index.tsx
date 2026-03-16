@@ -226,6 +226,8 @@ const Index = () => {
   return (
     <div className="min-h-screen w-full">
       <Navbar onSearch={setSearchQuery} />
+      <GoogleAdBannerTablet />
+      <GoogleAdBannerMobile />
       <KeyboardHints />
 
       <div className="flex flex-col md:flex-row w-full">

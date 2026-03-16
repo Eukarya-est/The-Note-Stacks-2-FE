@@ -69,6 +69,8 @@ const Desk = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar onSearch={() => {}} />
+      <GoogleAdBannerTablet />
+      <GoogleAdBannerMobile />
 
       <div className="flex">
         <main className="flex-1 min-w-0 p-4 sm:p-6 max-w-7xl mx-auto space-y-6 sm:space-y-8">
