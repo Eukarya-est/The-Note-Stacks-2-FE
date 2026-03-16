@@ -58,9 +58,9 @@ export const GoogleAdBannerTablet = () => (
   </div>
 );
 
-/** Mobile: 320×100 horizontal banner */
+/** Mobile: 320×100 sticky bottom banner */
 export const GoogleAdBannerMobile = () => (
-  <div className="flex md:hidden justify-center px-3 py-2">
+  <div className="fixed bottom-0 left-0 right-0 z-50 flex md:hidden justify-center bg-background/80 backdrop-blur-sm border-t border-border px-3 py-1.5">
     <AdPlaceholder width={320} height={100} className="w-full max-w-[320px]" />
   </div>
 );
