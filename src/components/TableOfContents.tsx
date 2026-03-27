@@ -43,7 +43,7 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
       >
         <ul className="space-y-1 border-t border-border px-4 py-3">
           {headings.map((heading, index) => {
-            const isClickable = heading.level <= 2;
+            const isClickable = heading.level <= 4;
             return (
               <li
                 key={index}
