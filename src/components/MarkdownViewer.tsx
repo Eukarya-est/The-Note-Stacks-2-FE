@@ -5,7 +5,7 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
-import mermaid from "mermaid";
+import MermaidDiagram from "@/components/MermaidDiagram";
 import { useTheme } from "next-themes";
 import "katex/dist/katex.min.css";
 import "@/lib/highlightLanguages"; // Register additional syntax highlighting languages
@@ -254,20 +254,6 @@ const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewe
     return { hasToc, headings, processedContent: processed };
   }, [content]);
 
-  useEffect(() => {
-    mermaid.initialize({
-      startOnLoad: true,
-      theme: "default",
-      securityLevel: "loose",
-    });
-
-    if (mermaidRef.current && processedContent) {
-      const mermaidElements = mermaidRef.current.querySelectorAll(".mermaid");
-      mermaidElements.forEach((element) => {
-        mermaid.init(undefined, element as HTMLElement);
-      });
-    }
-  }, [processedContent]);
 
   return (
     <div className="mx-auto max-w-4xl p-4 sm:p-8">
@@ -398,11 +384,7 @@ const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewe
                 const isCodeBlock = match !== null;
 
                 if (isMermaid) {
-                  return (
-                    <div className="mermaid my-6">
-                      {String(children).replace(/\n$/, "")}
-                    </div>
-                  );
+                  return <MermaidDiagram chart={String(children).replace(/\n$/, "")} />;
                 }
 
                 // For code blocks (with language), optionally add line numbers
