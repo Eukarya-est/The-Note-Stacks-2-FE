@@ -100,7 +100,7 @@ interface MarkdownViewerProps {
 const BACKEND_STATIC_URL = `${import.meta.env.VITE_API_BASE_URL || ''}/static`;
 
 const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewerProps) => {
-  const mermaidRef = useRef<HTMLDivElement>(null);
+  
   const headerRef = useRef<HTMLDivElement>(null);
   const { data: content, isLoading: contentLoading } = useMarkdownContent(
       file.content, // Use content from backend first
@@ -309,7 +309,7 @@ const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewe
           <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
         </div>
       ) : processedContent ? (
-        <div className="markdown-content" ref={mermaidRef}>
+        <div className="markdown-content">
           {hasToc && <TableOfContents headings={headings} />}
           {hasToc && <StickyTocIndicator headings={headings} />}
           <ReactMarkdown
