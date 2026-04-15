@@ -87,6 +87,12 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
               >
                 <a
                   href={`#${heading.id}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById(heading.id);
+                    el?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    setActiveId(heading.id);
+                  }}
                   className={cn(
                     "block py-1 text-sm transition-colors",
                     activeId === heading.id
