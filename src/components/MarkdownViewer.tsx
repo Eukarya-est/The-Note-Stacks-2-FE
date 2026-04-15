@@ -450,7 +450,7 @@ const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewe
                   />
                 );
               },
-            }}
+            };})()}
           >
             {processedContent}
           </ReactMarkdown>
