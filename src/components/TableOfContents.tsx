@@ -42,28 +42,19 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
         )}
       >
         <ul className="space-y-1 border-t border-border px-4 py-3">
-          {headings.map((heading, index) => {
-            const isClickable = heading.level <= 4;
-            return (
+          {headings.map((heading, index) => (
               <li
                 key={index}
                 style={{ paddingLeft: `${(heading.level - 1) * 0.75}rem` }}
               >
-                {isClickable ? (
-                  <a
-                    href={`#${heading.id}`}
-                    className="block py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
-                  >
-                    {heading.text}
-                  </a>
-                ) : (
-                  <span className="block py-1 text-sm text-muted-foreground/60">
-                    {heading.text}
-                  </span>
-                )}
+                <a
+                  href={`#${heading.id}`}
+                  className="block py-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+                >
+                  {heading.text}
+                </a>
               </li>
-            );
-          })}
+          ))}
         </ul>
       </div>
     </div>
