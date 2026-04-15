@@ -66,12 +66,19 @@ const extractHeadings = (content: string) => {
 
   const headingRegex = /^(#{1,6})\s+(.+)$/gm;
   const headings: { level: number; text: string; id: string }[] = [];
+  const idCountMap: Record<string, number> = {};
   let match;
   
   while ((match = headingRegex.exec(cleanedContent)) !== null) {
     const level = match[1].length;
     const text = match[2].trim();
-    const id = generateHeadingId(text);
+    let id = generateHeadingId(text);
+    if (idCountMap[id] !== undefined) {
+      idCountMap[id]++;
+      id = `${id}-${idCountMap[id]}`;
+    } else {
+      idCountMap[id] = 0;
+    }
     headings.push({ level, text, id });
   }
   
@@ -315,29 +322,41 @@ const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewe
           <ReactMarkdown
             remarkPlugins={[remarkGfm, remarkMath]}
             rehypePlugins={[rehypeKatex, rehypeRaw, rehypeHighlight]}
-            components={{
+            components={(() => {
+              const renderIdCountMap: Record<string, number> = {};
+              const getUniqueId = (text: string) => {
+                let id = generateHeadingId(text);
+                if (renderIdCountMap[id] !== undefined) {
+                  renderIdCountMap[id]++;
+                  id = `${id}-${renderIdCountMap[id]}`;
+                } else {
+                  renderIdCountMap[id] = 0;
+                }
+                return id;
+              };
+              return {
               h1: ({ children, ...props }: any) => {
-                const id = generateHeadingId(String(children));
+                const id = getUniqueId(String(children));
                 return <h1 id={id} {...props}>{children}</h1>;
               },
               h2: ({ children, ...props }: any) => {
-                const id = generateHeadingId(String(children));
+                const id = getUniqueId(String(children));
                 return <h2 id={id} {...props}>{children}</h2>;
               },
               h3: ({ children, ...props }: any) => {
-                const id = generateHeadingId(String(children));
+                const id = getUniqueId(String(children));
                 return <h3 id={id} {...props}>{children}</h3>;
               },
               h4: ({ children, ...props }: any) => {
-                const id = generateHeadingId(String(children));
+                const id = getUniqueId(String(children));
                 return <h4 id={id} {...props}>{children}</h4>;
               },
               h5: ({ children, ...props }: any) => {
-                const id = generateHeadingId(String(children));
+                const id = getUniqueId(String(children));
                 return <h5 id={id} {...props}>{children}</h5>;
               },
               h6: ({ children, ...props }: any) => {
-                const id = generateHeadingId(String(children));
+                const id = getUniqueId(String(children));
                 return <h6 id={id} {...props}>{children}</h6>;
               },
               pre({ children, ...props }: any) {
@@ -431,7 +450,7 @@ const MarkdownViewer = ({ file, totalContents, highlightOnMount }: MarkdownViewe
                   />
                 );
               },
-            }}
+            };})()}
           >
             {processedContent}
           </ReactMarkdown>
