@@ -54,8 +54,7 @@ const TableOfContents = ({ headings }: TableOfContentsProps) => {
                   {heading.text}
                 </a>
               </li>
-            );
-          })}
+          ))}
         </ul>
       </div>
     </div>
